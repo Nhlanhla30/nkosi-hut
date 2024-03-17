@@ -1,20 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import ServicesPage from './pages/ServicesPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import TestAPI from './components/TestAPI'; // Import the new component
 
 function App() {
-  const [backendMessage, setBackendMessage] = useState('');
-
-  useEffect(() => {
-    // Make sure the URL matches your Express route
-    fetch('/api/test')
-      .then(response => response.json())
-      .then(data => setBackendMessage(data.message))
-      .catch(err => console.error("Error fetching data:", err));
-  }, []);
-
   return (
-    <div>
-      <p>Message from backend: {backendMessage}</p>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/services" component={ServicesPage} />
+        <Route path="/about" component={AboutPage} />
+        <Route path="/contact" component={ContactPage} />
+        <Route path="/test-api" component={TestAPI} /> {/* Route for testing the API */}
+      </Switch>
+    </Router>
   );
 }
 
