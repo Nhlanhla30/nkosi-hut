@@ -1,0 +1,74 @@
+/* HomePage.module.css */
+.container {
+    padding: 20px;
+  }
+  
+  /* Hero section with a background image */
+  .heroSection {
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 20px; /* Ensure spacing between sections */
+  }
+  
+  .heroButton {
+    background-color: #008037; /* Green, adjust based on branding */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .heroButton:hover {
+    background-color: #004d26;
+  }
+  
+  /* Styles for the services overview section */
+  .servicesOverview {
+    padding: 20px;
+  background-color: white; /* Consider using your brand colors */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Soft shadow for depth */
+  border-radius: 8px;
+  }
+  
+  /* About Us section with possible adjustments */
+  .aboutUs {
+    text-align: center; /* Center content for this section */
+    /* Additional styles as needed */
+  }
+  
+  .profileImage {
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto; /* Center the image */
+    border-radius: 8px;
+  }
+  
+  /* Contact CTA with a standout look */
+  .contactCta {
+    background-color: #008037;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px; /* Ensure spacing from the above content */
+  }
+  
+  .contactCta a {
+    color: #ffff00; /* Adjust for visibility */
+    text-decoration: underline; /* Optional */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .heroSection {
+      padding: 60px 15px;
+    }
+  
+    /* Add responsive adjustments for other sections as needed */
+  }
+  
+  

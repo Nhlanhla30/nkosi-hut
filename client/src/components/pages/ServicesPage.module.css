@@ -1,0 +1,27 @@
+/* Adjust and expand upon these styles as needed */
+.container {
+    padding: 20px;
+  }
+  
+  .servicesList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .serviceItem {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .ctaButton {
+    background-color: #007bff; /* Example color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
