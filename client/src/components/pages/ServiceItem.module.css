@@ -1,0 +1,18 @@
+/* ServiceItem.module.css */
+.serviceItem {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .icon {
+    font-size: 48px; /* Adjust size of icons */
+    margin-bottom: 10px;
+  }
+  
+  /* HomePage.module.css */
+  .servicesOverview {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  

@@ -3,6 +3,7 @@ import styles from './HomePage.module.css'; // Assume you have corresponding CSS
 // Import images from the assets directory
 import heroImage from './heroTwo.jpg';
 import profileImage from './nhlanhlaProfileImage.jpg';
+import ServiceItem from './ServiceItem';
 
 function HomePage() {
   return (
@@ -18,7 +19,9 @@ function HomePage() {
       <section className={styles.servicesOverview}>
         <h2>Our Services</h2>
         <p>Explore our wide range of technology solutions designed to empower your business.</p>
-        {/* Placeholder for services */}
+        <ServiceItem icon="web" title="Web Development" description="Build modern, responsive websites." />
+        <ServiceItem icon="mobile" title="Mobile App Development" description="Create engaging mobile experiences." />
+        <ServiceItem icon="cloud" title="Cloud Hosting" description="Reliable and scalable cloud solutions." />
       </section>
 
       {/* About Us - With Team Photo */}
