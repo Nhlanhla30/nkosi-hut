@@ -1,6 +1,6 @@
 /* Navbar.module.css */
 .navbar {
-    background-color: #008037;
+    background-color: #000000;
     padding: 10px 0px 15px;
     display: flex;
     justify-content: space-between;
@@ -36,6 +36,7 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
+    margin: 0;
 }
 
 .navLink {
