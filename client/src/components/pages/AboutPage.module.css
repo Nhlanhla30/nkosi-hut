@@ -1,0 +1,55 @@
+/* AboutPage.module.css */
+.aboutContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+}
+
+.aboutContainer h1, 
+.aboutContainer h2, 
+.aboutContainer h3 {
+    color: #008037;
+}
+
+.aboutIntroSection {
+    padding: 20px 0;
+}
+
+.aboutTeamSection {
+    padding: 20px 0;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.aboutTeamMember {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.aboutProfileImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.aboutMemberInfo {
+    max-width: 800px;
+}
+
+.aboutMissionSection, 
+.aboutValuesSection {
+    padding: 20px 0;
+}
+
+.aboutValuesSection ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.aboutValuesSection li {
+    margin-bottom: 10px;
+}

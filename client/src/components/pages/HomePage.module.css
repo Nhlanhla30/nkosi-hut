@@ -1,31 +1,49 @@
 /* HomePage.module.css */
 .container {
-    padding: 20px;
-  }
-  
-  /* Hero section with a background image */
-  .heroSection {
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    text-align: center;
-    padding: 100px 20px;
-    margin-bottom: 20px; /* Ensure spacing between sections */
-  }
-  
-  .heroButton {
-    background-color: #008037; /* Green, adjust based on branding */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .heroButton:hover {
-    background-color: #004d26;
-  }
+  padding: 20px;
+}
+
+/* Hero section with a background image */
+.heroSection {
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 50px 20px;
+  margin-bottom: 20px; /* Ensure spacing between sections */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Adjust the height as needed */
+  position: relative;
+}
+
+.heroSection h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.heroSection p {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.heroButton {
+  background-color: #008037; /* Green, adjust based on branding */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.heroButton:hover {
+  background-color: #004d26;
+}
+
   
   /* Styles for the services overview section */
   .servicesOverview {
@@ -37,35 +55,72 @@
   
   /* About Us section with possible adjustments */
   .aboutUs {
-    text-align: center; /* Center content for this section */
-    /* Additional styles as needed */
-  }
-  
-  .profileImage {
-    width: 80%;
-    max-width: 400px;
-    margin: 20px auto; /* Center the image */
-    border-radius: 8px;
-  }
-  
-  /* Contact CTA with a standout look */
-  .contactCta {
-    background-color: #008037;
-    color: #fff;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e0e0e0;
+}
+
+.aboutContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     text-align: center;
-    padding: 20px;
-    margin-top: 20px; /* Ensure spacing from the above content */
-  }
+}
+
+.placeholderImage {
+    margin-bottom: 20px;
+}
+
+.textContent {
+    max-width: 800px;
+}
+
+.textContent p {
+    margin: 15px 0;
+}
   
-  .contactCta a {
-    color: #ffff00; /* Adjust for visibility */
-    text-decoration: underline; /* Optional */
-  }
+ /* Contact Section */
+.contactSection {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.contactSection h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.contactLink {
+  color: #008037;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.contactLink:hover {
+  text-decoration: none;
+}
   
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .heroSection {
       padding: 60px 15px;
+      height: auto;
+    }
+  
+    .heroSection h1 {
+      font-size: 36px;
+      margin-bottom: 5px;
+      line-height: 1.2; /* Adjust line height to prevent wrapping */
+    }
+  
+    .heroSection p {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+  
+    .heroButton {
+      padding: 8px 16px;
     }
   
     /* Add responsive adjustments for other sections as needed */

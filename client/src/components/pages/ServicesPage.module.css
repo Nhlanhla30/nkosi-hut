@@ -1,27 +1,58 @@
-/* Adjust and expand upon these styles as needed */
-.container {
-    padding: 20px;
-  }
-  
-  .servicesList {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .serviceItem {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-  }
-  
-  .ctaButton {
-    background-color: #007bff; /* Example color */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
-  }
+/* ServicesPage.module.css */
+.servicesContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.servicesContainer h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.servicesList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.serviceItem {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  width: 300px;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.serviceItem:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.iconContainer {
+  font-size: 50px;
+  color: #008037;
+  margin-bottom: 15px;
+}
+
+.serviceItem h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.serviceItem p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+
+
   
