@@ -1,0 +1,16 @@
+{
+  "name": "Nkosi Hut - Digital Solutions Agency",
+  "short_name": "Nkosi Hut",
+  "description": "South African tech agency specializing in website development, mobile applications, UI/UX design, and cloud solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0f0d",
+  "theme_color": "#176331",
+  "icons": [
+    {
+      "src": "/images/logo-color.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

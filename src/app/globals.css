@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface-dark text-text-primary;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(138, 190, 83, 0.3);
+    color: #f0f5f2;
+  }
+}
+
+/* ========================================
+   CUSTOM UTILITIES
+   ======================================== */
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #a0d06a, #8abe53, #1e7d3e);
+  }
+
+  .bg-grid {
+    background-image: linear-gradient(
+        rgba(138, 190, 83, 0.03) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(138, 190, 83, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}
+
+/* ========================================
+   COMPONENT STYLES
+   ======================================== */
+@layer components {
+  .section-label {
+    @apply flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-brand-accent;
+  }
+
+  .section-label::before {
+    content: "";
+    @apply block h-px w-6 bg-brand-accent;
+  }
+}
