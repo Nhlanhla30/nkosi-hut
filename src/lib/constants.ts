@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Nkosi Hut",
   url: "https://nkosihut.co.za",
-  email: "hello@nkosihut.co.za",
+  email: "nhlanhla@nkosihut.co.za",
   description:
     "South African tech agency specializing in website development, mobile applications, UI/UX design, and cloud solutions.",
   links: {
@@ -15,6 +15,7 @@ export const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Process", href: "#process" },
   { label: "About", href: "#about" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const services = [

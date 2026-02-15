@@ -52,12 +52,12 @@ export function Navbar() {
             </li>
           ))}
           <li>
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="rounded-md border border-brand-accent px-6 py-2.5 text-sm font-medium text-brand-accent transition-all duration-300 hover:bg-brand-accent hover:text-surface-dark"
             >
               Get in Touch
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -88,13 +88,13 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               onClick={() => setMobileOpen(false)}
               className="mt-4 rounded-md border border-brand-accent px-8 py-3 text-lg font-medium text-brand-accent transition-all duration-300 hover:bg-brand-accent hover:text-surface-dark"
             >
               Get in Touch
-            </a>
+            </Link>
           </div>
         )}
       </div>

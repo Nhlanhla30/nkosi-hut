@@ -28,7 +28,7 @@ export function CTA() {
                 transformation — we&apos;re ready when you are.
               </p>
               <a
-                href={`mailto:${siteConfig.email}`}
+                href="/contact"
                 className="group mt-9 inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3.5 text-[0.95rem] font-semibold text-brand-primary-dark transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-accent-light hover:text-surface-dark hover:shadow-[0_8px_30px_rgba(138,190,83,0.25)]"
               >
                 Get in Touch
