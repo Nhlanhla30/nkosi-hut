@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { navLinks, siteConfig } from "@/lib/constants";
@@ -33,9 +34,9 @@ export function Navbar() {
       )}
     >
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-[clamp(20px,5vw,80px)]">
-        <a href="/" aria-label={`${siteConfig.name} Home`}>
+        <Link href="/" aria-label={`${siteConfig.name} Home`}>
           <Logo size="md" />
-        </a>
+        </Link>
 
         {/* Desktop Links */}
         <ul className="hidden items-center gap-9 md:flex">
