@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/constants";
 
 export function CTA() {
   return (
-    <section id="contact" className="py-[clamp(80px,12vw,160px)]">
+    <section id="cta" className="py-[clamp(80px,12vw,160px)]">
       <div className="mx-auto max-w-[1200px] px-[clamp(20px,5vw,80px)]">
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-primary-dark to-brand-primary p-[clamp(48px,8vw,80px)] text-center">
