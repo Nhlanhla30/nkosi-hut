@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { techStack } from "@/lib/constants";
 import { Sparkles } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export function Hero() {
   return (
@@ -54,9 +56,10 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-wrap items-center gap-4"
           >
-            <Button href="#contact" variant="primary">
-              Start Your Project
-            </Button>
+            <Link href="/contact" className="group inline-flex items-center gap-2 rounded-lg bg-brand-accent px-8 py-3.5 text-[0.95rem] font-semibold text-surface-dark transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-accent-light hover:shadow-[0_8px_30px_rgba(138,190,83,0.25)]">
+  Start Your Project
+  <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+</Link>
             <Button href="#services" variant="secondary" arrow="down">
               Explore Services
             </Button>
