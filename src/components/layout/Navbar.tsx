@@ -25,6 +25,9 @@ export function Navbar() {
     };
   }, [mobileOpen]);
 
+  const isInternal = (href: string) =>
+    href.startsWith("/") && !href.startsWith("#");
+
   return (
     <nav
       className={cn(
@@ -42,13 +45,23 @@ export function Navbar() {
         <ul className="hidden items-center gap-9 md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                className="group relative text-sm text-text-secondary transition-colors duration-300 hover:text-text-primary"
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 h-[1.5px] w-0 bg-brand-accent transition-all duration-300 group-hover:w-full" />
-              </a>
+              {isInternal(link.href) ? (
+                <Link
+                  href={link.href}
+                  className="group relative text-sm text-text-secondary transition-colors duration-300 hover:text-text-primary"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 h-[1.5px] w-0 bg-brand-accent transition-all duration-300 group-hover:w-full" />
+                </Link>
+              ) : (
+                <a
+                  href={link.href}
+                  className="group relative text-sm text-text-secondary transition-colors duration-300 hover:text-text-primary"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 h-[1.5px] w-0 bg-brand-accent transition-all duration-300 group-hover:w-full" />
+                </a>
+              )}
             </li>
           ))}
           <li>
@@ -78,16 +91,27 @@ export function Navbar() {
         {/* Mobile Menu */}
         {mobileOpen && (
           <div className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-8 bg-surface-dark/[0.97] backdrop-blur-xl md:hidden">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-2xl font-medium text-text-secondary transition-colors hover:text-text-primary"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              isInternal(link.href) ? (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="text-2xl font-medium text-text-secondary transition-colors hover:text-text-primary"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="text-2xl font-medium text-text-secondary transition-colors hover:text-text-primary"
+                >
+                  {link.label}
+                </a>
+              )
+            )}
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}
