@@ -73,6 +73,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "wkUhQiiBADDmOvYjGx96mMoUph6VvNLZNdXqALylN8o",
+  },
 };
 
 // JSON-LD Structured Data
@@ -91,7 +94,7 @@ const jsonLd = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer service",
-    email: "hello@nkosihut.co.za",
+    email: "nhlanhla@nkosihut.co.za",
   },
 };
 
