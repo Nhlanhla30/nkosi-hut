@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/ui/Logo";
 import { navLinks, siteConfig } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -12,115 +13,152 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const isInternal = (href: string) =>
-    href.startsWith("/") && !href.startsWith("#");
+  const isInternal = (href: string) => href.startsWith("/") && !href.startsWith("#");
+
+  const linkClass =
+    "text-[0.8125rem] font-light tracking-[0.05em] text-text-secondary/65 transition-colors duration-500 hover:text-text-primary";
 
   return (
     <nav
       className={cn(
-        "fixed inset-x-0 top-0 z-50 py-5 transition-all duration-400",
-        scrolled &&
-          "border-b border-border bg-surface-dark/85 py-3 backdrop-blur-xl"
+        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+        scrolled
+          ? "border-b border-white/[0.05] bg-[#0a0f0d]/82 py-4 backdrop-blur-2xl"
+          : "py-6"
       )}
     >
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-[clamp(20px,5vw,80px)]">
+
+        {/* Logo */}
         <Link href="/" aria-label={`${siteConfig.name} Home`}>
           <Logo size="md" />
         </Link>
 
-        {/* Desktop Links */}
-        <ul className="hidden items-center gap-9 md:flex">
+        {/* Desktop nav */}
+        <ul className="hidden items-center gap-10 md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               {isInternal(link.href) ? (
-                <Link
-                  href={link.href}
-                  className="group relative text-sm text-text-secondary transition-colors duration-300 hover:text-text-primary"
-                >
+                <Link href={link.href} className={linkClass}>
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 h-[1.5px] w-0 bg-brand-accent transition-all duration-300 group-hover:w-full" />
                 </Link>
               ) : (
-                <a
-                  href={link.href}
-                  className="group relative text-sm text-text-secondary transition-colors duration-300 hover:text-text-primary"
-                >
+                <a href={link.href} className={linkClass}>
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 h-[1.5px] w-0 bg-brand-accent transition-all duration-300 group-hover:w-full" />
                 </a>
               )}
             </li>
           ))}
+
+          {/* Solid CTA */}
           <li>
             <Link
               href="/contact"
-              className="rounded-md border border-brand-accent px-6 py-2.5 text-sm font-medium text-brand-accent transition-all duration-300 hover:bg-brand-accent hover:text-surface-dark"
+              className="inline-block rounded-md bg-brand-accent px-5 py-[0.45rem] text-[0.8125rem] font-semibold text-surface-dark transition-all duration-300 hover:scale-[1.05] hover:shadow-[0_0_20px_rgba(138,190,83,0.38)]"
             >
               Get in Touch
             </Link>
           </li>
         </ul>
 
-        {/* Mobile Toggle */}
+        {/* Mobile toggle */}
         <button
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={() => setMobileOpen((v) => !v)}
           className="z-[60] md:hidden"
-          aria-label="Toggle navigation menu"
+          aria-label="Toggle navigation"
           aria-expanded={mobileOpen}
         >
-          {mobileOpen ? (
-            <X size={24} className="text-text-primary" />
-          ) : (
-            <Menu size={24} className="text-text-primary" />
-          )}
+          <AnimatePresence mode="wait" initial={false}>
+            {mobileOpen ? (
+              <motion.span
+                key="close"
+                initial={{ opacity: 0, rotate: -45 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                exit={{ opacity: 0, rotate: 45 }}
+                transition={{ duration: 0.18 }}
+                className="block"
+              >
+                <X size={22} className="text-text-primary" />
+              </motion.span>
+            ) : (
+              <motion.span
+                key="open"
+                initial={{ opacity: 0, rotate: 45 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                exit={{ opacity: 0, rotate: -45 }}
+                transition={{ duration: 0.18 }}
+                className="block"
+              >
+                <Menu size={22} className="text-text-secondary" />
+              </motion.span>
+            )}
+          </AnimatePresence>
         </button>
 
-        {/* Mobile Menu */}
-        {mobileOpen && (
-          <div className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-8 bg-surface-dark/[0.97] backdrop-blur-xl md:hidden">
-            {navLinks.map((link) =>
-              isInternal(link.href) ? (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-2xl font-medium text-text-secondary transition-colors hover:text-text-primary"
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-2xl font-medium text-text-secondary transition-colors hover:text-text-primary"
-                >
-                  {link.label}
-                </a>
-              )
-            )}
-            <Link
-              href="/contact"
-              onClick={() => setMobileOpen(false)}
-              className="mt-4 rounded-md border border-brand-accent px-8 py-3 text-lg font-medium text-brand-accent transition-all duration-300 hover:bg-brand-accent hover:text-surface-dark"
+        {/* Mobile menu overlay */}
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              key="mobile-menu"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.22 }}
+              className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-8 bg-[#0a0f0d]/[0.97] backdrop-blur-xl md:hidden"
             >
-              Get in Touch
-            </Link>
-          </div>
-        )}
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.06 + i * 0.055, duration: 0.35 }}
+                >
+                  {isInternal(link.href) ? (
+                    <Link
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="text-2xl font-light tracking-wide text-text-secondary transition-colors duration-300 hover:text-text-primary"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="text-2xl font-light tracking-wide text-text-secondary transition-colors duration-300 hover:text-text-primary"
+                    >
+                      {link.label}
+                    </a>
+                  )}
+                </motion.div>
+              ))}
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.06 + navLinks.length * 0.055, duration: 0.35 }}
+              >
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileOpen(false)}
+                  className="mt-2 inline-block rounded-md bg-brand-accent px-8 py-3 text-base font-semibold text-surface-dark transition-all duration-300 hover:scale-[1.03]"
+                >
+                  Get in Touch
+                </Link>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );
