@@ -17,10 +17,10 @@ export function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-[1200px] px-[clamp(20px,5vw,80px)]">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_auto] lg:gap-24">
 
-          {/* ── Left: text content ── */}
+          {/* -- Left: text content -- */}
           <div className="max-w-[600px]">
 
-            {/* Heading — single confident white */}
+            {/* Heading -- single confident white */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -68,7 +68,7 @@ export function Hero() {
               </Button>
             </motion.div>
 
-            {/* Trust signals — deliberately quiet, secondary to main content */}
+            {/* Trust signals -- deliberately quiet, secondary to main content */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -87,7 +87,7 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* ── Right: animated logo (desktop only) ── */}
+          {/* -- Right: animated logo (desktop only) -- */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}

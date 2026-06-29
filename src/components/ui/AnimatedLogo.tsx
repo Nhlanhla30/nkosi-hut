@@ -14,7 +14,7 @@ const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 export function AnimatedLogo({ size = 260 }: { size?: number }) {
   const svgSize = Math.round(size * 0.72);
 
-  // Individual useAnimation controls — hooks must be called unconditionally at top level
+  // Individual useAnimation controls -- hooks must be called unconditionally at top level
   const s0 = useAnimation(), s1 = useAnimation(), s2 = useAnimation();
   const f0 = useAnimation(), f1 = useAnimation(), f2 = useAnimation();
 
@@ -25,7 +25,7 @@ export function AnimatedLogo({ size = 260 }: { size?: number }) {
 
     async function runLoop() {
       while (!cancelled) {
-        // Instant reset — strokes at pathLength 0 (invisible), fills invisible
+        // Instant reset -- strokes at pathLength 0 (invisible), fills invisible
         sc.forEach((c) => c.set({ pathLength: 0, opacity: 0 }));
         fc.forEach((c) => c.set({ opacity: 0 }));
 
@@ -48,11 +48,11 @@ export function AnimatedLogo({ size = 260 }: { size?: number }) {
           fc.map((c) => c.start({ opacity: 1 }, { duration: 0.7, ease: "easeOut" }))
         );
 
-        // Wait for the last stroke to finish (starts at 900 ms, takes 2000 ms → done ~2900 ms)
+        // Wait for the last stroke to finish (starts at 900 ms, takes 2000 ms -> done ~2900 ms)
         await Promise.all(drawPromises);
         if (cancelled) break;
 
-        // Retire strokes — fills are now carrying the visual weight
+        // Retire strokes -- fills are now carrying the visual weight
         await Promise.all(
           sc.map((c) => c.start({ opacity: 0 }, { duration: 0.5, ease: "easeOut" }))
         );
@@ -100,7 +100,7 @@ export function AnimatedLogo({ size = 260 }: { size?: number }) {
           willChange: "opacity, transform",
         }}
       />
-      {/* Inner glow — offset phase for depth */}
+      {/* Inner glow -- offset phase for depth */}
       <div
         style={{
           position: "absolute",

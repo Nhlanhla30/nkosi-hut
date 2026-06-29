@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://nkosihut.co.za"),
   title: {
-    default: "Nkosi Hut | Digital Solutions & Web Development Agency — South Africa",
+    default: "Nkosi Hut | Digital Solutions & Web Development Agency - South Africa",
     template: "%s | Nkosi Hut",
   },
   description:

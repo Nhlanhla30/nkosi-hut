@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { ReactNode, useEffect, useRef } from "react";
 
 interface RevealProps {
   children: ReactNode;
@@ -11,9 +11,9 @@ interface RevealProps {
 }
 
 const directionVariants = {
-  up: { y: 30, x: 0 },
-  down: { y: -30, x: 0 },
-  left: { x: 30, y: 0 },
+  up:    { y: 30, x: 0 },
+  down:  { y: -30, x: 0 },
+  left:  { x: 30, y: 0 },
   right: { x: -30, y: 0 },
 };
 
@@ -23,13 +23,27 @@ export function Reveal({
   direction = "up",
   className,
 }: RevealProps) {
-  const initial = directionVariants[direction];
+  const ref = useRef<HTMLDivElement>(null);
+
+  // useInView fires reliably post-hydration, avoiding the whileInView race condition
+  // where IntersectionObserver callbacks can arrive before Framer Motion is ready
+  // in Next.js App Router's SSR hydration cycle.
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start({ opacity: 1, x: 0, y: 0 });
+    }
+  }, [isInView, controls]);
+
+  const { x, y } = directionVariants[direction];
 
   return (
     <motion.div
-      initial={{ opacity: 0, ...initial }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      ref={ref}
+      initial={{ opacity: 0, x, y }}
+      animate={controls}
       transition={{
         duration: 0.6,
         delay,

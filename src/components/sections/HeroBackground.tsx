@@ -20,7 +20,7 @@ export function HeroBackground() {
       className="pointer-events-none absolute inset-0 overflow-hidden"
       aria-hidden="true"
     >
-      {/* Horizontal circuit pulses — light traveling along grid rows */}
+      {/* Horizontal circuit pulses -- light traveling along grid rows */}
       {H_PULSES.map((p, i) => (
         <div
           key={`h-${i}`}
@@ -52,7 +52,7 @@ export function HeroBackground() {
         </div>
       ))}
 
-      {/* Vertical circuit pulses — light traveling along grid columns */}
+      {/* Vertical circuit pulses -- light traveling along grid columns */}
       {V_PULSES.map((p, i) => (
         <div
           key={`v-${i}`}
@@ -84,7 +84,7 @@ export function HeroBackground() {
         </div>
       ))}
 
-      {/* Aurora blob 1 — primary green, center-right */}
+      {/* Aurora blob 1 -- primary green, center-right */}
       <div
         style={{
           position: "absolute",
@@ -100,7 +100,7 @@ export function HeroBackground() {
         }}
       />
 
-      {/* Aurora blob 2 — accent green, lower left */}
+      {/* Aurora blob 2 -- accent green, lower left */}
       <div
         style={{
           position: "absolute",
@@ -116,7 +116,7 @@ export function HeroBackground() {
         }}
       />
 
-      {/* Aurora blob 3 — smaller mid accent, frames the center */}
+      {/* Aurora blob 3 -- smaller mid accent, frames the center */}
       <div
         style={{
           position: "absolute",
@@ -132,7 +132,7 @@ export function HeroBackground() {
         }}
       />
 
-      {/* Radial vignette — darkens edges to keep text readable */}
+      {/* Radial vignette -- darkens edges to keep text readable */}
       <div
         style={{
           position: "absolute",
