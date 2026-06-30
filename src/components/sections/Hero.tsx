@@ -43,7 +43,7 @@ export function Hero() {
             >
               Nkosi Hut is a South African tech agency delivering modern websites,
               mobile applications, and cloud solutions that drive real business
-              growth. From concept to deployment — we&apos;ve got you covered.
+              growth. We handle everything from concept to deployment.
             </motion.p>
 
             {/* CTAs */}
@@ -78,7 +78,7 @@ export function Hero() {
               <div className="mb-4 flex items-center gap-2">
                 <Sparkles size={11} className="shrink-0 text-brand-accent" />
                 <p className="text-xs text-text-muted">
-                  1 project delivered — every build gets our full focus and attention.
+                  1 project delivered. Every build gets our full focus and attention.
                 </p>
               </div>
               <p className="font-mono text-[0.65rem] tracking-[0.18em] text-text-muted/60">

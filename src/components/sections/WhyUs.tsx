@@ -22,7 +22,7 @@ export function WhyUs() {
               <span className="gradient-text">Built to last.</span>
             </h2>
             <p className="mt-4 text-base text-text-secondary">
-              We&apos;re not just developers — we&apos;re partners invested in
+              We&apos;re not just developers. We&apos;re partners invested in
               your digital success.
             </p>
           </div>

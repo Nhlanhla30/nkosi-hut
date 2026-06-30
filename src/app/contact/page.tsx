@@ -136,7 +136,7 @@ export default function ContactPage() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="John Doe"
+                      placeholder=""
                       className="w-full rounded-lg border border-border bg-surface-dark-2 px-4 py-3 text-sm text-text-primary placeholder-text-muted outline-none transition-all focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/30"
                     />
                   </div>
@@ -155,7 +155,7 @@ export default function ContactPage() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="john@company.co.za"
+                      placeholder="you@yourcompany.co.za"
                       className="w-full rounded-lg border border-border bg-surface-dark-2 px-4 py-3 text-sm text-text-primary placeholder-text-muted outline-none transition-all focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/30"
                     />
                   </div>
@@ -193,7 +193,7 @@ export default function ContactPage() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      placeholder="Your Company"
+                      placeholder=""
                       className="w-full rounded-lg border border-border bg-surface-dark-2 px-4 py-3 text-sm text-text-primary placeholder-text-muted outline-none transition-all focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/30"
                     />
                   </div>
@@ -352,7 +352,7 @@ export default function ContactPage() {
                   Under 24 hours
                 </p>
                 <p className="mt-1 text-xs text-text-muted">
-                  We typically respond same-day during business hours.
+                  We typically respond the same day during business hours.
                 </p>
               </div>
             </div>

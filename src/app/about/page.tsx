@@ -23,7 +23,7 @@ const values = [
   },
   {
     icon: TrendingUp,
-    title: "Growth-Driven",
+    title: "Built for Growth",
     description:
       "Every solution we build is designed to scale. We think beyond the immediate need and architect systems that grow alongside your business.",
   },
@@ -46,7 +46,7 @@ const capabilities = [
     icon: Globe,
     title: "Web & Mobile Applications",
     description:
-      "Custom-built digital products that engage your customers and streamline your operations across every device and platform.",
+      "Custom digital products that engage your customers and streamline your operations across every device and platform.",
   },
   {
     icon: Cpu,
@@ -64,7 +64,7 @@ const capabilities = [
     icon: Workflow,
     title: "Digital Transformation",
     description:
-      "Modernise legacy systems, digitise manual processes, and position your business for the future with end-to-end digital transformation.",
+      "Modernise legacy systems, digitise manual processes, and position your business for the future with comprehensive digital transformation.",
   },
 ];
 
@@ -85,13 +85,13 @@ export default function AboutPage() {
                 Nkosi Hut is a South African technology agency on a mission to
                 help businesses harness the power of modern digital solutions.
                 From custom software and mobile applications to CRM systems and
-                full digital transformation — we build the technology that
+                full digital transformation, we build the technology that
                 drives real growth.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-text-secondary">
                 We believe that every business, regardless of size, deserves
-                access to world-class technology. That belief drives everything
-                we do — from the tools we choose to the relationships we build
+                access to exceptional technology. That belief drives everything
+                we do, from the tools we choose to the relationships we build
                 with our clients.
               </p>
             </div>
@@ -158,13 +158,12 @@ export default function AboutPage() {
             <div className="mb-14 max-w-[600px]">
               <span className="section-label">How We Help</span>
               <h2 className="mt-5 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight tracking-tight">
-                End-to-end technology{" "}
-                <span className="gradient-text">for modern businesses</span>
+                Complete technology for{" "}
+                <span className="gradient-text">modern businesses</span>
               </h2>
               <p className="mt-4 text-text-secondary">
-                Whether you need a customer-facing app, an internal tool, or a
-                complete overhaul of your digital infrastructure — we have the
-                expertise to deliver.
+                Whether you need an app for your customers, an internal tool, or a
+                complete infrastructure overhaul, we have the expertise to deliver.
               </p>
             </div>
           </Reveal>

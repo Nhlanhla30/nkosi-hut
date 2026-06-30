@@ -121,11 +121,6 @@
    ======================================== */
 @layer components {
   .section-label {
-    @apply flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-brand-accent;
-  }
-
-  .section-label::before {
-    content: "";
-    @apply block h-px w-6 bg-brand-accent;
+    @apply flex items-center font-mono text-xs uppercase tracking-[0.2em] text-brand-accent;
   }
 }

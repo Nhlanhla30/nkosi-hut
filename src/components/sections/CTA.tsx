@@ -25,7 +25,7 @@ export function CTA() {
               </h2>
               <p className="mx-auto mt-4 max-w-[480px] text-lg text-white/70">
                 Whether you need a website, mobile app, or full digital
-                transformation — we&apos;re ready when you are.
+                transformation, we&apos;re ready when you are.
               </p>
               <a
                 href="/contact"

@@ -23,7 +23,7 @@ export const services = [
     number: "01",
     title: "Website Development",
     description:
-      "High-performance, responsive websites built with modern frameworks. From landing pages to complex web applications — optimized for speed, SEO, and conversion.",
+      "Fast, responsive websites built with modern frameworks. From landing pages to complex web applications, all optimized for speed, SEO, and conversion.",
     tags: ["Next.js", "React", "E-Commerce", "CMS"],
     icon: "code" as const,
   },
@@ -31,7 +31,7 @@ export const services = [
     number: "02",
     title: "Mobile App Development",
     description:
-      "Native and cross-platform mobile applications for iOS and Android. We create intuitive, fast apps that users love and businesses depend on.",
+      "Mobile applications for iOS and Android, built to feel truly native. We create intuitive, fast apps that users love and businesses depend on.",
     tags: ["React Native", "Flutter", "iOS", "Android"],
     icon: "smartphone" as const,
   },
@@ -39,7 +39,7 @@ export const services = [
     number: "03",
     title: "UI/UX Design",
     description:
-      "User-centred design that converts. We research, wireframe, prototype, and deliver pixel-perfect interfaces that delight users and meet business objectives.",
+      "Design centred on real users, built to convert. We research, wireframe, prototype, and deliver polished interfaces that delight users and meet business objectives.",
     tags: ["Figma", "Prototyping", "User Research", "Design Systems"],
     icon: "pen-tool" as const,
   },
@@ -47,7 +47,7 @@ export const services = [
     number: "04",
     title: "Cloud & DevOps Solutions",
     description:
-      "Scalable cloud architecture, CI/CD pipelines, and infrastructure automation. We ensure your applications run reliably, securely, and cost-effectively.",
+      "Scalable cloud architecture, CI/CD pipelines, and infrastructure automation. We ensure your applications run reliably, securely, and on budget.",
     tags: ["AWS", "Azure", "Docker", "CI/CD"],
     icon: "cloud" as const,
   },
@@ -64,7 +64,7 @@ export const processSteps = [
     number: "02",
     title: "Design",
     description:
-      "Wireframes and high-fidelity mockups are crafted, refined with your feedback until pixel-perfect.",
+      "Wireframes and detailed mockups are crafted, then refined with your feedback until every detail is right.",
   },
   {
     number: "03",
@@ -76,7 +76,7 @@ export const processSteps = [
     number: "04",
     title: "Deploy & Support",
     description:
-      "We launch, monitor, and continuously improve — providing ongoing support and maintenance.",
+      "We launch, monitor, and continuously improve your product, with ongoing support and maintenance included.",
   },
 ] as const;
 
@@ -84,13 +84,13 @@ export const whyUsReasons = [
   {
     title: "Modern Tech Stack",
     description:
-      "We use industry-leading tools and frameworks to ensure your product is fast, scalable, and future-proof.",
+      "We use proven tools and frameworks to ensure your product is fast, scalable, and built for the future.",
     icon: "zap" as const,
   },
   {
     title: "Results Focused",
     description:
-      "Every line of code and every pixel serves a purpose — driving conversions, engagement, and business growth.",
+      "Every line of code and every pixel serves a purpose, driving conversions, engagement, and business growth.",
     icon: "target" as const,
   },
   {
