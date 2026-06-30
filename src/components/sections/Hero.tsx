@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { techStack } from "@/lib/constants";
 import { Sparkles } from "lucide-react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -68,22 +67,19 @@ export function Hero() {
               </Button>
             </motion.div>
 
-            {/* Trust signals -- deliberately quiet, secondary to main content */}
+            {/* Capability statement -- quiet accent below CTAs */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.9, ease: "easeOut" }}
               className="mt-24 opacity-60"
             >
-              <div className="mb-4 flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <Sparkles size={11} className="shrink-0 text-brand-accent" />
                 <p className="text-xs text-text-muted">
-                  1 project delivered. Every build gets our full focus and attention.
+                  From the first line of code to final deployment, we handle every step.
                 </p>
               </div>
-              <p className="font-mono text-[0.65rem] tracking-[0.18em] text-text-muted/60">
-                {techStack.map((t) => t.name).join(" · ")}
-              </p>
             </motion.div>
           </div>
 

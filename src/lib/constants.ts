@@ -100,16 +100,3 @@ export const whyUsReasons = [
     icon: "handshake" as const,
   },
 ] as const;
-
-export const techStack = [
-  { name: "Next.js", category: "Frontend" },
-  { name: "React", category: "Frontend" },
-  { name: "TypeScript", category: "Language" },
-  { name: "Tailwind CSS", category: "Styling" },
-  { name: "Node.js", category: "Backend" },
-  { name: "React Native", category: "Mobile" },
-  { name: "Flutter", category: "Mobile" },
-  { name: "AWS", category: "Cloud" },
-  { name: "Docker", category: "DevOps" },
-  { name: "Figma", category: "Design" },
-] as const;
