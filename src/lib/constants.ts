@@ -80,6 +80,30 @@ export const processSteps = [
   },
 ] as const;
 
+export const projects = [
+  {
+    number: "01",
+    role: "Full Build - Web App",
+    title: "Stencil",
+    description:
+      "A booking platform for tattoo studios. Clients book appointments and pay deposits online, with funds held securely for the artist until the session.",
+  },
+  {
+    number: "02",
+    role: "Full Build - Mobile App",
+    title: "LJ Trading",
+    description:
+      "A workforce management app for construction teams. Time tracking, vehicle logs and project oversight, all from the field.",
+  },
+  {
+    number: "03",
+    role: "Deployment & Hosting",
+    title: "FJS Holding",
+    description:
+      "Handled deployment, DNS, SSL and hosting for this engineering firm's site, delivering a fast, secure, production-ready launch.",
+  },
+] as const;
+
 export const whyUsReasons = [
   {
     title: "Modern Tech Stack",
