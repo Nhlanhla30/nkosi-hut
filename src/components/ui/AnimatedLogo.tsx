@@ -23,29 +23,45 @@ export function AnimatedLogo({ size = 260 }: { size?: number }) {
     const sc = [s0, s1, s2];
     const fc = [f0, f1, f2];
 
+    // Calls ctrl.start() only when not cancelled, and swallows any rejection
+    // that Framer Motion raises if the component unmounts mid-animation.
+    // Using async + try/catch ensures the wrapping Promise.all always resolves
+    // so the cancelled-break gates further up the loop remain reachable.
+    const guardedStart = async (
+      ctrl: (typeof sc)[number],
+      target: Parameters<(typeof sc)[number]["start"]>[0],
+      opts?: Parameters<(typeof sc)[number]["start"]>[1]
+    ): Promise<void> => {
+      if (cancelled) return;
+      try {
+        await ctrl.start(target, opts);
+      } catch {
+        // Animation interrupted by unmount -- ignore silently
+      }
+    };
+
     async function runLoop() {
       while (!cancelled) {
         // Instant reset -- strokes at pathLength 0 (invisible), fills invisible
         sc.forEach((c) => c.set({ pathLength: 0, opacity: 0 }));
         fc.forEach((c) => c.set({ opacity: 0 }));
 
-        // Phase 1: Draw strokes sequentially (staggered 450 ms apart)
+        // Phase 1: Draw strokes sequentially (staggered 450 ms apart).
+        // Each sleep callback re-checks cancelled before calling start(),
+        // and guardedStart absorbs any Framer Motion rejection on unmount.
         const drawPromises = sc.map((ctrl, i) =>
-          sleep(i * 450).then(() => {
-            if (!cancelled) {
-              return ctrl.start(
-                { pathLength: 1, opacity: 1 },
-                { duration: 2.0, ease: [0.4, 0, 0.6, 1] }
-              );
-            }
-          })
+          sleep(i * 450).then(() =>
+            guardedStart(ctrl, { pathLength: 1, opacity: 1 }, { duration: 2.0, ease: [0.4, 0, 0.6, 1] })
+          )
         );
 
         // Phase 2: Once the first stroke is mostly done, light up all fills together
         await sleep(1900);
         if (cancelled) break;
+
+        // guardedStart checks cancelled again right before each c.start() call
         const fillPromise = Promise.all(
-          fc.map((c) => c.start({ opacity: 1 }, { duration: 0.7, ease: "easeOut" }))
+          fc.map((c) => guardedStart(c, { opacity: 1 }, { duration: 0.7, ease: "easeOut" }))
         );
 
         // Wait for the last stroke to finish (starts at 900 ms, takes 2000 ms -> done ~2900 ms)
@@ -54,7 +70,7 @@ export function AnimatedLogo({ size = 260 }: { size?: number }) {
 
         // Retire strokes -- fills are now carrying the visual weight
         await Promise.all(
-          sc.map((c) => c.start({ opacity: 0 }, { duration: 0.5, ease: "easeOut" }))
+          sc.map((c) => guardedStart(c, { opacity: 0 }, { duration: 0.5, ease: "easeOut" }))
         );
         if (cancelled) break;
 
@@ -67,7 +83,7 @@ export function AnimatedLogo({ size = 260 }: { size?: number }) {
 
         // Phase 4: Fade fills out
         await Promise.all(
-          fc.map((c) => c.start({ opacity: 0 }, { duration: 0.9, ease: "easeInOut" }))
+          fc.map((c) => guardedStart(c, { opacity: 0 }, { duration: 0.9, ease: "easeInOut" }))
         );
         if (cancelled) break;
 
@@ -76,7 +92,9 @@ export function AnimatedLogo({ size = 260 }: { size?: number }) {
       }
     }
 
-    runLoop();
+    // Catch any top-level rejection as a final safety net
+    runLoop().catch(() => undefined);
+
     return () => {
       cancelled = true;
     };

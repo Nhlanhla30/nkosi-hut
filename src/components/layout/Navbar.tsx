@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,6 +12,7 @@ import { cn } from "@/lib/utils";
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -23,10 +25,27 @@ export function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const isInternal = (href: string) => href.startsWith("/") && !href.startsWith("#");
+  // Active only on exact page routes; anchor links (/#...) never receive active state
+  const isActive = (href: string) => !href.includes("#") && pathname === href;
 
-  const linkClass =
-    "text-[0.8125rem] font-light tracking-[0.05em] text-text-secondary/65 transition-colors duration-500 hover:text-text-primary";
+  // All navLinks start with "/" so Next.js Link handles them all correctly:
+  // "/" "/about" "/contact" navigate to those pages;
+  // "/#services" "/#process" navigate to the homepage then let the browser scroll to the hash.
+  const desktopLinkClass = (href: string) =>
+    cn(
+      "text-[0.8125rem] font-light tracking-[0.05em] transition-colors duration-500",
+      isActive(href)
+        ? "text-brand-accent"
+        : "text-text-secondary/65 hover:text-text-primary"
+    );
+
+  const mobileLinkClass = (href: string) =>
+    cn(
+      "text-2xl font-light tracking-wide transition-colors duration-300",
+      isActive(href)
+        ? "text-brand-accent"
+        : "text-text-secondary hover:text-text-primary"
+    );
 
   return (
     <nav
@@ -48,15 +67,9 @@ export function Navbar() {
         <ul className="hidden items-center gap-10 md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
-              {isInternal(link.href) ? (
-                <Link href={link.href} className={linkClass}>
-                  {link.label}
-                </Link>
-              ) : (
-                <a href={link.href} className={linkClass}>
-                  {link.label}
-                </a>
-              )}
+              <Link href={link.href} className={desktopLinkClass(link.href)}>
+                {link.label}
+              </Link>
             </li>
           ))}
 
@@ -123,23 +136,13 @@ export function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.06 + i * 0.055, duration: 0.35 }}
                 >
-                  {isInternal(link.href) ? (
-                    <Link
-                      href={link.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="text-2xl font-light tracking-wide text-text-secondary transition-colors duration-300 hover:text-text-primary"
-                    >
-                      {link.label}
-                    </Link>
-                  ) : (
-                    <a
-                      href={link.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="text-2xl font-light tracking-wide text-text-secondary transition-colors duration-300 hover:text-text-primary"
-                    >
-                      {link.label}
-                    </a>
-                  )}
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={mobileLinkClass(link.href)}
+                  >
+                    {link.label}
+                  </Link>
                 </motion.div>
               ))}
 
@@ -159,6 +162,7 @@ export function Navbar() {
             </motion.div>
           )}
         </AnimatePresence>
+
       </div>
     </nav>
   );
