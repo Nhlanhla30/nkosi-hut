@@ -84,10 +84,10 @@ export function Navbar() {
           </li>
         </ul>
 
-        {/* Mobile toggle */}
+        {/* Mobile toggle — relative required so z-[60] creates a stacking context above the z-50 overlay */}
         <button
           onClick={() => setMobileOpen((v) => !v)}
-          className="z-[60] md:hidden"
+          className="relative z-[60] md:hidden"
           aria-label="Toggle navigation"
           aria-expanded={mobileOpen}
         >
@@ -127,7 +127,7 @@ export function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.22 }}
-              className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-8 bg-[#0a0f0d]/[0.97] backdrop-blur-xl md:hidden"
+              className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-8 bg-[#0a0f0d] md:hidden"
             >
               {navLinks.map((link, i) => (
                 <motion.div

@@ -117,6 +117,30 @@
 }
 
 /* ========================================
+   MARQUEE ANIMATION
+   ======================================== */
+
+/* Scrolls the track left by exactly half its width for a seamless loop.
+   Duration is overridden per-instance via the --marquee-duration CSS variable
+   so the visual speed stays constant as the client list grows. */
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marqueeScroll var(--marquee-duration, 35s) linear infinite;
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ========================================
    COMPONENT STYLES
    ======================================== */
 @layer components {

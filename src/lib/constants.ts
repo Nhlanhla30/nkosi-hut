@@ -124,3 +124,22 @@ export const whyUsReasons = [
     icon: "handshake" as const,
   },
 ] as const;
+
+// Append new clients here; the marquee derives its track length automatically.
+export const clients = [
+  {
+    name: "LJ Trading & Projects",
+    logoSrc: "/images/clients/lj-trading-logo.png",
+    alt: "LJ Trading and Projects logo",
+  },
+  {
+    name: "FJS Holding",
+    logoSrc: "/images/clients/fjs-holding-logo.png",
+    alt: "FJS Holding logo",
+  },
+  {
+    name: "ReaLogix",
+    logoSrc: "/images/clients/realogix-logo.png",
+    alt: "ReaLogix logo",
+  },
+] as const;
